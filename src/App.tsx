@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div className="text-center text-white bg-green-400 text-4xl p-12 m-2">
+    <div className="m-2 bg-green-400 p-12 text-center text-4xl text-white">
       Books explorer
     </div>
   );
