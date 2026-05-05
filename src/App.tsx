@@ -1,6 +1,7 @@
 // Components;
 import Book from "./components/Book";
 import ControlsBar from "./components/ControlsBar";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Book />
         </section>
       </main>
+      <Footer />
     </>
   );
 }
