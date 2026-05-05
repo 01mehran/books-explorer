@@ -43,18 +43,20 @@ export default function ControlsBar() {
           >
             Language
           </label>
-          <select
-            id="language-filter"
-            className="w-full cursor-pointer rounded-lg border border-[#e0e0e0] bg-[#f5f5f5] px-4 py-3 text-[#212121] outline-0 transition-all focus:border-[#009688] focus:ring-1 focus:ring-[#009688]"
-          >
-            <option value="">All Languages</option>
-            <option value="en">English</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="es">Spanish</option>
-            <option value="it">Italian</option>
-            <option value="pt">Portuguese</option>
-          </select>
+          <div className="rounded-lg border border-[#e0e0e0] bg-[#f5f5f5] px-2 transition-all focus-within:ring-2 focus-within:ring-[#009688]">
+            <select
+              id="language-filter"
+              className="w-full cursor-pointer rounded-lg px-4 py-3 text-[#212121] outline-0"
+            >
+              <option value="">All Languages</option>
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="es">Spanish</option>
+              <option value="it">Italian</option>
+              <option value="pt">Portuguese</option>
+            </select>
+          </div>
         </div>
 
         {/* ---- Sort Dropdown ---- */}
@@ -65,13 +67,15 @@ export default function ControlsBar() {
           >
             Sort by
           </label>
-          <select
-            id="sort-select"
-            className="w-full cursor-pointer rounded-lg border border-[#e0e0e0] bg-[#f5f5f5] px-4 py-3 text-[#212121] outline-0 transition-all focus:border-[#009688] focus:ring-1 focus:ring-[#009688]"
-          >
-            <option value="downloads">Most Downloaded</option>
-            <option value="title">Title A–Z</option>
-          </select>
+          <div className="rounded-lg border border-[#e0e0e0] bg-[#f5f5f5] px-2 transition-all focus-within:ring-2 focus-within:ring-[#009688]">
+            <select
+              id="sort-select"
+              className="w-full cursor-pointer px-4 py-3 text-[#212121] outline-0"
+            >
+              <option value="downloads">Most Downloaded</option>
+              <option value="title">Title A–Z</option>
+            </select>
+          </div>
         </div>
       </div>
 
