@@ -1,6 +1,10 @@
+// Components;
 import ClearFilterButton from "./ClearFilterButton";
 
-export default function ControlsBar() {
+// Types;
+import type { TControlsBarProps } from "../types/types";
+
+export default function ControlsBar({ value, onChange }: TControlsBarProps) {
   return (
     <section id="controls" className="mb-8 rounded-xl bg-white p-6 shadow-sm">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -18,6 +22,8 @@ export default function ControlsBar() {
               id="search-input"
               placeholder="e.g., Pride and Prejudice, Jane Austen..."
               className="w-full rounded-lg border border-[#e0e0e0] bg-white px-4 py-3 pl-11 placeholder-[#9e9e9e] outline-0 transition-all focus:border-[#009688] focus:ring-1 focus:ring-[#009688]"
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
             />
             <svg
               className="absolute top-3.5 left-3.5 h-5 w-5 text-[#9e9e9e]"

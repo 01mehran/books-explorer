@@ -15,3 +15,9 @@ export type TBook = {
 export type BookProps = {
   book: TBook;
 };
+
+
+export type TControlsBarProps = {
+  value: string;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
+};

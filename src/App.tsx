@@ -15,6 +15,7 @@ import axios from "axios";
 
 function App() {
   const [data, seteData] = useState<TBook[]>([]);
+  const [input, setInput] = useState("");
 
   async function getUser() {
     try {
@@ -33,27 +34,43 @@ function App() {
     getUser();
   }, []);
 
+  const filteredBooks = data.filter((book) => {
+    const serach = input.toLowerCase();
+
+    const titleMatch = book.title.toLowerCase().includes(serach);
+
+    const authorMatch = book.authors.some((auth) =>
+      auth.name.toLowerCase().includes(serach),
+    );
+
+    return titleMatch || authorMatch;
+  });
+
   return (
-    <>
+    <div className="">
       {/* ---- Header ---- */}
       <Header />
       {/* ---- Main Content ---- */}
-      <main className="mx-auto max-w-7xl px-4 py-8">
+      <main className="mx-auto min-h-screen max-w-7xl px-4 py-8">
         {/* ---- Controls Bar ---- */}
-        <ControlsBar />
+        <ControlsBar value={input} onChange={setInput} />
 
         {/* ---- Books Grid ---- */}
         <section
           id="books-grid"
           className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {data.map((book) => (
-            <Book key={book.id} book={book} />
-          ))}
+          {filteredBooks.length > 0 ? (
+            filteredBooks.map((book) => <Book key={book.id} book={book} />)
+          ) : (
+            <span className="text-gray-600 italic">
+              "Ooops, no title or author found!"
+            </span>
+          )}
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

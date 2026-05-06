@@ -1,11 +1,10 @@
+// Static image;
 import cover from "../cover.jpg";
 
 // Types
 import type { BookProps } from "../types/types";
 
 export default function Book({ book }: BookProps) {
-  console.log(book);
-
   return (
     <article className="animate-fade-in animate-de cursor-pointer overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1">
       <div className="bg-sepia-100 relative aspect-3/4 overflow-hidden">
