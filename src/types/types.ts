@@ -20,4 +20,7 @@ export type BookProps = {
 export type TControlsBarProps = {
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
+
+  sortOption: string;
+  setSortOption: 
 };

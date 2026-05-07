@@ -4,7 +4,12 @@ import ClearFilterButton from "./ClearFilterButton";
 // Types;
 import type { TControlsBarProps } from "../types/types";
 
-export default function ControlsBar({ value, onChange }: TControlsBarProps) {
+export default function ControlsBar({
+  value,
+  onChange,
+  sortOption,
+  setSortOption,
+}: TControlsBarProps) {
   return (
     <section id="controls" className="mb-8 rounded-xl bg-white p-6 shadow-sm">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -77,6 +82,8 @@ export default function ControlsBar({ value, onChange }: TControlsBarProps) {
             <select
               id="sort-select"
               className="w-full cursor-pointer px-4 py-3 text-[#212121] outline-0"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
             >
               <option value="downloads">Most Downloaded</option>
               <option value="title">Title A–Z</option>

@@ -16,6 +16,7 @@ import axios from "axios";
 function App() {
   const [data, seteData] = useState<TBook[]>([]);
   const [input, setInput] = useState("");
+  const [sortOption, setSortOption] = useState("");
 
   async function getUser() {
     try {
@@ -46,6 +47,18 @@ function App() {
     return titleMatch || authorMatch;
   });
 
+  const sortedBooks = [...filteredBooks].sort((a, b) => {
+    if (sortOption === "title") {
+      return a.title.localeCompare(b.title);
+    }
+
+    if (sortOption === "downloads") {
+      return b.download_count - a.download_count;
+    }
+
+    return 0;
+  });
+
   return (
     <div className="">
       {/* ---- Header ---- */}
@@ -53,18 +66,23 @@ function App() {
       {/* ---- Main Content ---- */}
       <main className="mx-auto min-h-screen max-w-7xl px-4 py-8">
         {/* ---- Controls Bar ---- */}
-        <ControlsBar value={input} onChange={setInput} />
+        <ControlsBar
+          value={input}
+          onChange={setInput}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+        />
 
         {/* ---- Books Grid ---- */}
         <section
           id="books-grid"
           className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {filteredBooks.length > 0 ? (
-            filteredBooks.map((book) => <Book key={book.id} book={book} />)
+          {sortedBooks.length > 0 ? (
+            sortedBooks.map((book) => <Book key={book.id} book={book} />)
           ) : (
             <span className="text-gray-600 italic">
-              "Ooops, no title or author found!"
+              &quot;Ooops, no title or author found!&quot;
             </span>
           )}
         </section>
