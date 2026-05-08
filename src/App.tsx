@@ -20,9 +20,7 @@ function App() {
 
   async function getUser() {
     try {
-      const res = await axios.get<TBooks[]>(
-        "http://localhost:8000/results",
-      );
+      const res = await axios.get<TBooks[]>("http://localhost:8000/results");
 
       setBooks(res.data);
     } catch (error) {
@@ -81,9 +79,11 @@ function App() {
           {sortedBooks.length > 0 ? (
             sortedBooks.map((book) => <BookCard key={book.id} book={book} />)
           ) : (
-            <span className="text-gray-600 italic">
-              &quot;Ooops, no title or author found!&quot;
-            </span>
+            <p className="text-nowrap text-gray-600 italic">
+              &quot; Ooops, no title or author found for{" "}
+              <span className="font-medium italic underline">{input}</span>!
+              &quot;
+            </p>
           )}
         </section>
       </main>
