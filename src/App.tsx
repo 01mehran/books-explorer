@@ -2,29 +2,29 @@
 import { useEffect, useState } from "react";
 
 // Components;
-import Book from "./components/Book";
+import BookCard from "./components/BookCard";
 import ControlsBar from "./components/ControlsBar";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 // Types;
-import type { TBook } from "./types/types";
+import type { TBooks } from "./types/types";
 
 // Libraries;
 import axios from "axios";
 
 function App() {
-  const [data, seteData] = useState<TBook[]>([]);
+  const [books, setBooks] = useState<TBooks[]>([]);
   const [input, setInput] = useState("");
   const [sortOption, setSortOption] = useState("");
 
   async function getUser() {
     try {
-      const response = await axios.get<TBook[]>(
+      const res = await axios.get<TBooks[]>(
         "http://localhost:8000/results",
       );
 
-      seteData(response.data);
+      setBooks(res.data);
     } catch (error) {
       console.error(error);
     }
@@ -35,19 +35,19 @@ function App() {
     getUser();
   }, []);
 
-  const filteredBooks = data.filter((book) => {
-    const serach = input.toLowerCase();
+  const searchedBook = books.filter((book) => {
+    const inputValue = input.toLowerCase();
 
-    const titleMatch = book.title.toLowerCase().includes(serach);
+    const bookTitle = book.title.toLowerCase().includes(inputValue);
 
-    const authorMatch = book.authors.some((auth) =>
-      auth.name.toLowerCase().includes(serach),
+    const bookAuthor = book.authors.some((auth) =>
+      auth.name.toLowerCase().includes(inputValue),
     );
 
-    return titleMatch || authorMatch;
+    return bookTitle || bookAuthor;
   });
 
-  const sortedBooks = [...filteredBooks].sort((a, b) => {
+  const sortedBooks = [...searchedBook].sort((a, b) => {
     if (sortOption === "title") {
       return a.title.localeCompare(b.title);
     }
@@ -79,7 +79,7 @@ function App() {
           className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {sortedBooks.length > 0 ? (
-            sortedBooks.map((book) => <Book key={book.id} book={book} />)
+            sortedBooks.map((book) => <BookCard key={book.id} book={book} />)
           ) : (
             <span className="text-gray-600 italic">
               &quot;Ooops, no title or author found!&quot;

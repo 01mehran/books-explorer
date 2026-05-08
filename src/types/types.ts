@@ -4,7 +4,7 @@ export type TAuthor = {
 
 export type TFormats = Record<string, string>;
 
-export type TBook = {
+export type TBooks = {
   id: number;
   title: string;
   download_count: number;
@@ -12,8 +12,8 @@ export type TBook = {
   formats: TFormats;
 };
 
-export type BookProps = {
-  book: TBook;
+export type TBookCardProps = {
+  book: TBooks;
 };
 
 
@@ -22,5 +22,5 @@ export type TControlsBarProps = {
   onChange: React.Dispatch<React.SetStateAction<string>>;
 
   sortOption: string;
-  setSortOption: 
+  setSortOption: React.Dispatch<React.SetStateAction<string>>
 };
