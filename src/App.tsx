@@ -36,6 +36,11 @@ function App() {
     getUser();
   }, []);
 
+  // Close modal box with Escape button on keyboard;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setIsModalOpen(false);
+  });
+
   const searchedBook = books.filter((book) => {
     const inputValue = input.toLowerCase();
 
