@@ -18,6 +18,7 @@ export type TBookCardProps = {
   book: TBooks;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedBook: React.Dispatch<React.SetStateAction<TBooks | null>>;
+  isModalOpen: boolean;
 };
 
 export type TControlsBarProps = {

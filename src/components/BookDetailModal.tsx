@@ -1,5 +1,6 @@
 import type { TModal } from "../types/types";
 
+// Static cover;
 import img from "../cover.jpg";
 
 export default function BookDetailisModalOpen({

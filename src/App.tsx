@@ -86,6 +86,7 @@ function App() {
                 book={book}
                 setIsModalOpen={setIsModalOpen}
                 setSelectedBook={setSelectedBook}
+                isModalOpen={isModalOpen}
               />
             ))
           ) : (

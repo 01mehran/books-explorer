@@ -1,4 +1,7 @@
-// Static image;
+// Hooks;
+import { useEffect } from "react";
+
+// Static cover;
 import cover from "../cover.jpg";
 
 // Types
@@ -8,7 +11,21 @@ export default function BookCard({
   book,
   setIsModalOpen,
   setSelectedBook,
+  isModalOpen,
 }: TBookCardProps) {
+  // Hidden body scroll when modal box is open;
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
+
   return (
     <article
       onClick={() => {
