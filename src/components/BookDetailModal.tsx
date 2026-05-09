@@ -16,6 +16,7 @@ export default function BookDetailisModalOpen({
 
   return (
     <section
+      onClick={() => setIsModalOpen(false)}
       className={`fixed inset-0 z-50 ${isModalOpen ? "block" : "hidden"} flex h-full w-full items-center justify-center bg-black/70 backdrop-blur-xs`}
     >
       <main className="relative mx-4 flex h-75 w-full max-w-150 rounded-lg bg-white/90 shadow-sm">
