@@ -4,9 +4,19 @@ import cover from "../cover.jpg";
 // Types
 import type { TBookCardProps } from "../types/types";
 
-export default function BookCard({ book }: TBookCardProps) {
+export default function BookCard({
+  book,
+  setIsModalOpen,
+  setSelectedBook,
+}: TBookCardProps) {
   return (
-    <article className="animate-fade-in animate-de cursor-pointer overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1">
+    <article
+      onClick={() => {
+        setSelectedBook(book);
+        setIsModalOpen(true);
+      }}
+      className="cursor-pointer overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1"
+    >
       <div className="bg-sepia-100 relative aspect-3/4 overflow-hidden">
         <img
           src={cover}

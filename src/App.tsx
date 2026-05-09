@@ -6,6 +6,7 @@ import BookCard from "./components/BookCard";
 import ControlsBar from "./components/ControlsBar";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import BookDetailModal from "./components/BookDetailModal";
 
 // Types;
 import type { TBooks } from "./types/types";
@@ -17,6 +18,8 @@ function App() {
   const [books, setBooks] = useState<TBooks[]>([]);
   const [input, setInput] = useState("");
   const [sortOption, setSortOption] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState<TBooks | null>(null);
 
   async function getUser() {
     try {
@@ -58,7 +61,7 @@ function App() {
   });
 
   return (
-    <div className="">
+    <>
       {/* ---- Header ---- */}
       <Header />
       {/* ---- Main Content ---- */}
@@ -77,7 +80,14 @@ function App() {
           className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {sortedBooks.length > 0 ? (
-            sortedBooks.map((book) => <BookCard key={book.id} book={book} />)
+            sortedBooks.map((book) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                setIsModalOpen={setIsModalOpen}
+                setSelectedBook={setSelectedBook}
+              />
+            ))
           ) : (
             <p className="text-nowrap text-gray-600 italic">
               &quot; Ooops, no title or author found for{" "}
@@ -86,9 +96,18 @@ function App() {
             </p>
           )}
         </section>
+
+        {isModalOpen && selectedBook && (
+          <BookDetailModal
+            isModalOpen={isModalOpen}
+            selectedBook={selectedBook}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )}
       </main>
+
       <Footer />
-    </div>
+    </>
   );
 }
 
