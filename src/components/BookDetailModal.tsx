@@ -1,7 +1,11 @@
+// Type;
 import type { TModal } from "../types/types";
 
 // Static cover;
 import img from "../cover.jpg";
+
+// Svg icon;
+import DownloadSvgIcon from "./DownloadSvgIcon";
 
 export default function BookDetailisModalOpen({
   isModalOpen,
@@ -84,19 +88,7 @@ export default function BookDetailisModalOpen({
             <span className="text-black/80 italic">
               {selectedBook.download_count.toLocaleString()}
             </span>
-            <svg
-              className="mr-1.5 h-4 w-4 text-black/80"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
+            <DownloadSvgIcon textColor="text-black/80" />
           </div>
         </div>
       </main>

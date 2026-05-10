@@ -35,3 +35,7 @@ export type TModal = {
   selectedBook: TBooks;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export type DownloadSvgIcon = {
+  textColor?: string;
+};
