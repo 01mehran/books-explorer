@@ -43,7 +43,7 @@ export default function BookCard({
         />
         <div className="absolute top-2 right-2 flex gap-1">
           <span className="rounded bg-[#212121] px-2 py-0.5 text-xs font-medium text-[#fafafa] uppercase">
-            en
+            {book.languages}
           </span>
         </div>
       </div>
