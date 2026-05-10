@@ -11,6 +11,7 @@ export default function ControlsBar({
   setSortOption,
   selectedLanguage,
   setSelectedLanguage,
+  handleClearFilters,
 }: TControlsBarProps) {
   return (
     <section id="controls" className="mb-8 rounded-xl bg-white p-6 shadow-sm">
@@ -97,7 +98,7 @@ export default function ControlsBar({
       </div>
 
       {/* ---- Clear Filters Button ---- */}
-      <ClearFilterButton />
+      <ClearFilterButton handleClearFilters={handleClearFilters}/>
     </section>
   );
 }

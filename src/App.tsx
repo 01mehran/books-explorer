@@ -78,6 +78,12 @@ function App() {
     return 0;
   });
 
+  // Handle Clear filter;
+  const handleClearFilters = () => {
+    setSortOption("downloads");
+    setSelectedLanguage("all");
+  };
+
   return (
     <>
       {/* ---- Header ---- */}
@@ -92,6 +98,7 @@ function App() {
           setSortOption={setSortOption}
           selectedLanguage={selectedLanguage}
           setSelectedLanguage={setSelectedLanguage}
+          handleClearFilters={handleClearFilters}
         />
 
         {/* ---- Books Grid ---- */}

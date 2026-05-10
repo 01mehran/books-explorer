@@ -28,6 +28,7 @@ export type TControlsBarProps = {
   setSortOption: React.Dispatch<React.SetStateAction<string>>;
   selectedLanguage: string;
   setSelectedLanguage: React.Dispatch<React.SetStateAction<string>>;
+  handleClearFilters: () => void;
 };
 
 export type TModal = {
