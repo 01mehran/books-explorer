@@ -6,6 +6,7 @@ import img from "../cover.jpg";
 
 // Svg icon;
 import DownloadSvgIcon from "./DownloadSvgIcon";
+import CloseSvgIcon from "./CloseSvgIcon";
 
 export default function BookDetailisModalOpen({
   isModalOpen,
@@ -29,19 +30,7 @@ export default function BookDetailisModalOpen({
           onClick={() => setIsModalOpen(false)}
           className="ease absolute top-2 right-4 z-10 cursor-pointer rounded-full transition duration-200 hover:opacity-70"
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <CloseSvgIcon height={6} width={6} />
         </button>
 
         {/*Book Cover  */}

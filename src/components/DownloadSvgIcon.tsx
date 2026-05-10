@@ -1,7 +1,7 @@
 // Type;
-import type { DownloadSvgIcon } from "../types/types";
+import type { TDownloadSvgIcon } from "../types/types";
 
-export default function DownloadSvgIcon({ textColor }: DownloadSvgIcon) {
+export default function DownloadSvgIcon({ textColor }: TDownloadSvgIcon) {
   return (
     <svg
       className={`mr-1.5 h-4 w-4 ${textColor}`}

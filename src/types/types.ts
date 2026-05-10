@@ -36,6 +36,11 @@ export type TModal = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export type DownloadSvgIcon = {
+export type TDownloadSvgIcon = {
   textColor?: string;
+};
+
+export type TCloseSvgIconProps = {
+  height?: number;
+  width?: number;
 };
