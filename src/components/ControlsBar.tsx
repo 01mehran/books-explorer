@@ -9,6 +9,8 @@ export default function ControlsBar({
   onChange,
   sortOption,
   setSortOption,
+  selectedLanguage,
+  setSelectedLanguage,
 }: TControlsBarProps) {
   return (
     <section id="controls" className="mb-8 rounded-xl bg-white p-6 shadow-sm">
@@ -58,8 +60,10 @@ export default function ControlsBar({
             <select
               id="language-filter"
               className="w-full cursor-pointer rounded-lg px-4 py-3 text-[#212121] outline-0"
+              value={selectedLanguage}
+              onChange={(e) => setSelectedLanguage(e.target.value)}
             >
-              <option value="">All Languages</option>
+              <option value="all">All Languages</option>
               <option value="en">English</option>
               <option value="fr">French</option>
               <option value="de">German</option>

@@ -24,9 +24,10 @@ export type TBookCardProps = {
 export type TControlsBarProps = {
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
-
   sortOption: string;
   setSortOption: React.Dispatch<React.SetStateAction<string>>;
+  selectedLanguage: string;
+  setSelectedLanguage: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type TModal = {

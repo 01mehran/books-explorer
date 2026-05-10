@@ -20,8 +20,10 @@ function App() {
   const [sortOption, setSortOption] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<TBooks | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState("all");
 
-  async function getUser() {
+  // Get book list;
+  async function getBookList() {
     try {
       const res = await axios.get<TBooks[]>("http://localhost:8000/results");
 
@@ -33,7 +35,7 @@ function App() {
 
   //Initializing;
   useEffect(() => {
-    getUser();
+    getBookList();
   }, []);
 
   // Close modal box with Escape button on keyboard;
@@ -41,6 +43,7 @@ function App() {
     if (e.key === "Escape") setIsModalOpen(false);
   });
 
+  // Find book by searching;
   const searchedBook = books.filter((book) => {
     const inputValue = input.toLowerCase();
 
@@ -53,7 +56,17 @@ function App() {
     return bookTitle || bookAuthor;
   });
 
-  const sortedBooks = [...searchedBook].sort((a, b) => {
+  // Filter by selected language;
+  const filteredByLanguage = searchedBook.filter((book) => {
+    if (selectedLanguage === "all") return true;
+
+    return book.languages.some(
+      (lang) => lang.toLowerCase() === selectedLanguage.toLowerCase(),
+    );
+  });
+
+  // Sort by Title A-Z or most downloaded;
+  const sortedBooks = [...filteredByLanguage].sort((a, b) => {
     if (sortOption === "title") {
       return a.title.localeCompare(b.title);
     }
@@ -77,6 +90,8 @@ function App() {
           onChange={setInput}
           sortOption={sortOption}
           setSortOption={setSortOption}
+          selectedLanguage={selectedLanguage}
+          setSelectedLanguage={setSelectedLanguage}
         />
 
         {/* ---- Books Grid ---- */}
