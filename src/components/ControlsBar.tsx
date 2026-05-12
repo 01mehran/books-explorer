@@ -3,6 +3,7 @@ import ClearFilterButton from "./ClearFilterButton";
 
 // Types;
 import type { TControlsBarProps } from "../types/types";
+import Select from "./select";
 
 export default function ControlsBar({
   value,
@@ -14,13 +15,13 @@ export default function ControlsBar({
   handleClearFilters,
 }: TControlsBarProps) {
   return (
-    <section id="controls" className="bg-white rounded-xl shadow-book p-6 mb-8">
+    <section id="controls" className="shadow-book mb-8 rounded-xl bg-white p-6">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {/* ---- Search Input ---- */}
         <div className="lg:col-span-2">
           <label
             htmlFor="search-input"
-            className="mb-2 block text-sm font-medium text-sepia-700"
+            className="text-sepia-700 mb-2 block text-sm font-medium"
           >
             Search by title or author
           </label>
@@ -29,12 +30,12 @@ export default function ControlsBar({
               type="text"
               id="search-input"
               placeholder="e.g., Pride and Prejudice, Jane Austen..."
-              className="w-full rounded-lg border border-sepia-200 bg-white px-4 py-3 pl-11 placeholder-sepia-400 outline-0 transition-all focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+              className="border-sepia-200 placeholder-sepia-400 w-full rounded-lg border bg-white px-4 py-3 pl-11 outline-0 transition-all focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
               value={value}
               onChange={(e) => onChange(e.target.value)}
             />
             <svg
-              className="absolute top-3.5 left-3.5 h-5 w-5 text-sepia-400"
+              className="text-sepia-400 absolute top-3.5 left-3.5 h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -50,55 +51,37 @@ export default function ControlsBar({
         </div>
 
         {/* ---- Language Filter ---- */}
-        <div>
-          <label
-            htmlFor="language-filter"
-            className="mb-2 block text-sm font-medium text-sepia-700"
-          >
-            Language
-          </label>
-          <div className="rounded-lg border border-sepia-200 bg-[#f5f5f5] px-2 transition-all focus-within:ring-2 focus-within:ring-amber-500">
-            <select
-              id="language-filter"
-              className="w-full cursor-pointer rounded-lg px-4 py-3 text-sepia-800 outline-0"
-              value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-            >
-              <option value="all">All Languages</option>
-              <option value="en">English</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-              <option value="es">Spanish</option>
-              <option value="it">Italian</option>
-              <option value="pt">Portuguese</option>
-            </select>
-          </div>
-        </div>
+        <Select
+          id="language-filter"
+          label="Language"
+          options={[
+            { value: "all", label: "All Languages" },
+            { value: "en", label: "English" },
+            { value: "fr", label: "French" },
+            { value: "de", label: "German" },
+            { value: "es", label: "Spanish" },
+            { value: "it", label: "Italian" },
+            { value: "pt", label: "Portuguese" },
+          ]}
+          value={selectedLanguage}
+          onChange={setSelectedLanguage}
+        />
 
         {/* ---- Sort Dropdown ---- */}
-        <div>
-          <label
-            htmlFor="sort-select"
-            className="mb-2 block text-sm font-medium text-sepia-700"
-          >
-            Sort by
-          </label>
-          <div className="rounded-lg border border-sepia-200 bg-[#f5f5f5] px-2 transition-all focus-within:ring-2 focus-within:ring-amber-500">
-            <select
-              id="sort-select"
-              className="w-full cursor-pointer px-4 py-3 text-sepia-800] outline-0"
-              value={sortOption}
-              onChange={(e) => setSortOption(e.target.value)}
-            >
-              <option value="downloads">Most Downloaded</option>
-              <option value="title">Title A–Z</option>
-            </select>
-          </div>
-        </div>
+        <Select
+          id="sort-select"
+          label="Sort by"
+          options={[
+            { value: "downloads", label: "Most Downloaded" },
+            { value: "title", label: "Title A-Z" },
+          ]}
+          value={sortOption}
+          onChange={setSortOption}
+        />
       </div>
 
       {/* ---- Clear Filters Button ---- */}
-      <ClearFilterButton handleClearFilters={handleClearFilters}/>
+      <ClearFilterButton handleClearFilters={handleClearFilters} />
     </section>
   );
 }
