@@ -30,7 +30,7 @@ export default function BookDetailisModalOpen({
           onClick={() => setIsModalOpen(false)}
           className="ease absolute top-2 right-4 z-10 cursor-pointer rounded-full transition duration-200 hover:opacity-70"
         >
-          <CloseSvgIcon height={6} width={6} />
+          <CloseSvgIcon height={5} width={5} />
         </button>
 
         {/*Book Cover  */}
