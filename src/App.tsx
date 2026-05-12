@@ -89,7 +89,7 @@ function App() {
       {/* ---- Header ---- */}
       <Header />
       {/* ---- Main Content ---- */}
-      <main className="mx-auto min-h-screen max-w-7xl px-4 py-8">
+      <main className="mx-auto min-h-screen max-w-5xl px-4 py-8">
         {/* ---- Controls Bar ---- */}
         <ControlsBar
           value={input}
@@ -117,7 +117,7 @@ function App() {
               />
             ))
           ) : (
-            <p className="text-nowrap text-gray-600 italic">
+            <p className="text-sepia-500 text-nowrap italic">
               &quot; Ooops, no title or author found for{" "}
               <span className="font-medium italic underline">{input}</span>!
               &quot;
