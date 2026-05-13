@@ -45,3 +45,11 @@ export type TCloseSvgIconProps = {
   height?: number;
   width?: number;
 };
+
+export type TBookListProps = {
+  bookList: TBooks[];
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedBook: React.Dispatch<React.SetStateAction<TBooks | null>>;
+  isModalOpen: boolean;
+  input: string;
+};
