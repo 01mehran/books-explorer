@@ -36,7 +36,7 @@ export default function BookCard({
       className="shadow-book hover:shadow-book-hover cursor-pointer overflow-hidden rounded-xl bg-white transition-all duration-300 hover:-translate-y-1"
       style={{ animationDelay: "0ms" }}
     >
-      <div className="bg-sepia-100 relative aspect-3/4 overflow-hidden">
+      <div className="bg-sepia-700 relative aspect-3/4">
         <img
           src={cover}
           alt={`Cover of ${book.title}`}
@@ -49,13 +49,17 @@ export default function BookCard({
           </span>
         </div>
       </div>
-      <div className="p-4">
-        <h3 className="text-sepia-800 mb-1 line-clamp-2 leading-tight font-bold">
-          {book.title}
-        </h3>
-        <p className="text-sepia-600 mb-3 line-clamp-1 text-sm">
-          {book.authors[0] ? book.authors[0]?.name : "Unknown Author"}
-        </p>
+
+      <div className="flex h-32 flex-col justify-around px-4 py-2">
+        <div className="flex flex-col gap-px">
+          <h3 className="text-sepia-800 mb-1 line-clamp-1 leading-4.5 font-bold">
+            {book.title}
+          </h3>
+          <p className="text-sepia-600 mb-3 line-clamp-1 text-sm">
+            {book.authors[0] ? book.authors[0]?.name : "Unknown Author"}
+          </p>
+        </div>
+
         <div className="text-sepia-500 flex items-center text-sm">
           <DownloadSvgIcon />
           {book.download_count.toLocaleString()} downloads
