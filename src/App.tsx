@@ -108,6 +108,7 @@ function App() {
           setIsModalOpen={setIsModalOpen}
           setSelectedBook={setSelectedBook}
           bookList={sortedBooks}
+          selectedLanguage={selectedLanguage}
         />
 
         {isModalOpen && selectedBook && (

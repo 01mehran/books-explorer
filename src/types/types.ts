@@ -52,4 +52,5 @@ export type TBookListProps = {
   setSelectedBook: React.Dispatch<React.SetStateAction<TBooks | null>>;
   isModalOpen: boolean;
   input: string;
+  selectedLanguage: string;
 };
