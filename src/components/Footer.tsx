@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mt-auto bg-[#212121] px-4 py-8 text-[#bdbdbd]">
+    <footer className="bg-sepia-800 text-sepia-300 mt-auto px-4 py-8">
       <div className="mx-auto max-w-7xl text-center">
         <p className="mb-2">
           Data provided by{" "}
@@ -8,12 +8,12 @@ export default function Footer() {
             href="https://gutendex.com/"
             target="_blank"
             rel="noopener"
-            className="text-[#26a69a] underline"
+            className="text-amber-400 underline"
           >
             Gutendex API
           </a>
         </p>
-        <p className="text-sm text-[#757575]">
+        <p className="text-sepia-500 text-sm">
           Books from{" "}
           <a
             href="https://www.gutenberg.org/"

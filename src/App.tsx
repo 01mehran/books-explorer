@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 
 // Components;
-import BookCard from "./components/BookCard";
 import ControlsBar from "./components/ControlsBar";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import BookDetailModal from "./components/BookDetailModal";
+import BookList from "./components/BookList";
 
 // Types;
 import type { TBooks } from "./types/types";
@@ -89,7 +89,7 @@ function App() {
       {/* ---- Header ---- */}
       <Header />
       {/* ---- Main Content ---- */}
-      <main className="mx-auto min-h-screen max-w-7xl px-4 py-8">
+      <main className="mx-auto min-h-screen max-w-5xl px-4 py-8">
         {/* ---- Controls Bar ---- */}
         <ControlsBar
           value={input}
@@ -102,28 +102,14 @@ function App() {
         />
 
         {/* ---- Books Grid ---- */}
-        <section
-          id="books-grid"
-          className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        >
-          {sortedBooks.length > 0 ? (
-            sortedBooks.map((book) => (
-              <BookCard
-                key={book.id}
-                book={book}
-                setIsModalOpen={setIsModalOpen}
-                setSelectedBook={setSelectedBook}
-                isModalOpen={isModalOpen}
-              />
-            ))
-          ) : (
-            <p className="text-nowrap text-gray-600 italic">
-              &quot; Ooops, no title or author found for{" "}
-              <span className="font-medium italic underline">{input}</span>!
-              &quot;
-            </p>
-          )}
-        </section>
+        <BookList
+          input={input}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          setSelectedBook={setSelectedBook}
+          bookList={sortedBooks}
+          selectedLanguage={selectedLanguage}
+        />
 
         {isModalOpen && selectedBook && (
           <BookDetailModal

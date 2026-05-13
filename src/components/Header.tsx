@@ -5,10 +5,10 @@ export default function Header() {
       style={{ background: "linear-gradient(135deg, #00695c, #009688)" }}
     >
       <div className="mx-auto max-w-7xl text-center">
-        <h1 className="font-display mb-3 text-4xl font-bold tracking-wide md:text-5xl">
+        <h1 className="font-display mb-3 text-4xl font-bold tracking-tight md:text-5xl">
           📚 Gutendex Books Explorer
         </h1>
-        <p className="mx-auto max-w-2xl text-lg text-[#b2dfdb] md:text-xl">
+        <p className="mx-auto max-w-2xl text-lg text-emerald-100 md:text-xl">
           Discover thousands of free public domain books from Project Gutenberg
         </p>
       </div>

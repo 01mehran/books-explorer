@@ -21,10 +21,17 @@ export default function BookDetailisModalOpen({
 
   return (
     <section
-      onClick={() => setIsModalOpen(false)}
-      className={`fixed inset-0 z-50 ${isModalOpen ? "block" : "hidden"} flex h-full w-full items-center justify-center bg-black/70 backdrop-blur-xs`}
+      className={`$ fixed inset-0 z-50 flex h-full w-full items-center justify-center`}
     >
-      <main className="animate-fade-in-scale relative mx-4 flex h-75 w-full max-w-150 rounded-lg bg-white/90 shadow-sm">
+      {/* <--- Backdrop --> */}
+      <div
+        id="modal-backdrop"
+        onClick={() => setIsModalOpen(false)}
+        className={`${isModalOpen ? "block" : "hidden"} absolute inset-0 bg-black/70 backdrop-blur-xs`}
+      ></div>
+
+      {/* Modal Content */}
+      <main className="animate-fade-in-scale relative mx-4 flex h-75 w-full max-w-150 rounded-lg bg-cream shadow-modal">
         {/*----  Close button ----*/}
         <button
           onClick={() => setIsModalOpen(false)}
