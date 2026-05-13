@@ -36,7 +36,7 @@ export default function BookCard({
       className="shadow-book hover:shadow-book-hover cursor-pointer overflow-hidden rounded-xl bg-white transition-all duration-300 hover:-translate-y-1"
       style={{ animationDelay: "0ms" }}
     >
-      <div className="bg-sepia-700 relative aspect-3/4">
+      <div className="bg-sepia-300 relative aspect-3/4">
         <img
           src={cover}
           alt={`Cover of ${book.title}`}

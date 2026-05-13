@@ -80,6 +80,7 @@ function App() {
 
   // Handle Clear filter;
   const handleClearFilters = () => {
+    setInput("");
     setSortOption("downloads");
     setSelectedLanguage("all");
   };
