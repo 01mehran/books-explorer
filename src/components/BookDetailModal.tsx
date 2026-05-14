@@ -31,7 +31,7 @@ export default function BookDetailisModalOpen({
       ></div>
 
       {/* Modal Content */}
-      <main className="animate-fade-in-scale relative mx-4 flex h-75 w-full max-w-150 rounded-lg bg-cream shadow-modal">
+      <main className="animate-fade-in-scale bg-cream shadow-modal relative mx-4 flex h-75 w-full max-w-150 rounded-lg">
         {/*----  Close button ----*/}
         <button
           onClick={() => setIsModalOpen(false)}

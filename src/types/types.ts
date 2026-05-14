@@ -62,3 +62,9 @@ export type TSelectProps = {
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
 };
+
+export type TEmptyStateMessageProps = {
+  input: string;
+  selectedLanguage: string;
+  bookListLength: number;
+};

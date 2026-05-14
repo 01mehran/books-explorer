@@ -3,6 +3,7 @@ import type { TBookListProps } from "../types/types";
 
 // Components;
 import BookCard from "./BookCard";
+import EmptyStateMessage from "./EmptyStateMessage";
 
 export default function BookList({
   bookList,
@@ -30,33 +31,11 @@ export default function BookList({
           ))}
       </section>
 
-      {!bookList.length && input && selectedLanguage !== "all" && (
-        <p className="text-sepia-600 text-center">
-          Ooops, no books found for{" "}
-          <span className="font-medium">"{input}"</span> in{" "}
-          <span className="font-medium">
-            "{selectedLanguage.toUpperCase()}"
-          </span>{" "}
-          language
-        </p>
-      )}
-
-      {!bookList.length && input && selectedLanguage === "all" && (
-        <p className="text-sepia-600 text-center">
-          Ooops, no title or author found for{" "}
-          <span className="font-medium">"{input}"</span>
-        </p>
-      )}
-
-      {!bookList.length && !input && selectedLanguage !== "all" && (
-        <p className="text-sepia-600 text-center">
-          Ooops, no books found for{" "}
-          <span className="font-medium">
-            "{selectedLanguage.toUpperCase()}"
-          </span>{" "}
-          language
-        </p>
-      )}
+      <EmptyStateMessage
+        input={input}
+        selectedLanguage={selectedLanguage}
+        bookListLength={bookList.length}
+      />
     </>
   );
 }
