@@ -1,10 +1,12 @@
 import CloseSvgIcon from "./CloseSvgIcon";
 
+type ThandleClearFilters = {
+  handleClearFilters: () => void;
+};
+
 export default function ClearFilterButton({
   handleClearFilters,
-}: {
-  handleClearFilters: () => void;
-}) {
+}: ThandleClearFilters) {
   return (
     <div className="mt-4 flex justify-end">
       <button

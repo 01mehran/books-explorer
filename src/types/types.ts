@@ -54,3 +54,11 @@ export type TBookListProps = {
   input: string;
   selectedLanguage: string;
 };
+
+export type TSelectProps = {
+  id: string;
+  options: { value: string; label: string }[];
+  label: string;
+  value: string;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
+};

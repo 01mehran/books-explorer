@@ -1,9 +1,9 @@
 // Components;
 import ClearFilterButton from "./ClearFilterButton";
+import Select from "./Select";
 
 // Types;
 import type { TControlsBarProps } from "../types/types";
-import Select from "./select";
 
 export default function ControlsBar({
   value,

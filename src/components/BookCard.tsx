@@ -6,6 +6,8 @@ import cover from "../cover.jpg";
 
 // Types
 import type { TBookCardProps } from "../types/types";
+
+// Svg;
 import DownloadSvgIcon from "./DownloadSvgIcon";
 
 export default function BookCard({

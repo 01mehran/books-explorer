@@ -1,10 +1,5 @@
-type TselectProps = {
-  id: string;
-  options: { value: string; label: string }[];
-  label: string;
-  value: string;
-  onChange: React.Dispatch<React.SetStateAction<string>>;
-};
+// Types;
+import type { TSelectProps } from "../types/types";
 
 export default function Select({
   id,
@@ -12,7 +7,7 @@ export default function Select({
   label,
   value,
   onChange,
-}: TselectProps) {
+}: TSelectProps) {
   return (
     <div>
       <label
